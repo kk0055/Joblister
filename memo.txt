@@ -1,0 +1,19 @@
+ WHERE jobs.category_id = $category
+ がjob.phpのpublic function getByCategory($category)に挿入できない。エラーになる。
+ 
+ シングルからダブルクオーテーションにしたら解決した
+
+ Fatal error: Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column '$category' in 'where clause' in C:\xampp\htdocs\PHPjoblister\lib\Database.php:54 Stack trace: #0 C:\xampp\htdocs\PHPjoblister\lib\Database.php(54): PDOStatement->execute() #1 C:\xampp\htdocs\PHPjoblister\lib\Database.php(58): Database->execute() #2 C:\xampp\htdocs\PHPjoblister\lib\job.php(42): Database->resultSet() #3 C:\xampp\htdocs\PHPjoblister\index.php(11): Job->getByCategory('1') #4 {main} thrown in C:\xampp\htdocs\PHPjoblister\lib\Database.php on line 54
+
+
+
+  <ul class="navbar-nav mr-auto"> </ul>
+
+　formもhrefも同じ動きする
+
+   <a href="index.php">
+      <button class="btn btn-outline-success my-2 my-sm-0 mr-2" type="submit">Home</button></a>
+      
+      <form class="form-inline my-2 my-lg-0" action="create.php">
+      <input type="submit" class="btn btn-outline-success my-2 my-sm-0" value="Create Listing">
+     </form>
